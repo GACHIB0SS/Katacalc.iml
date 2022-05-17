@@ -12,10 +12,10 @@ public class Main {
         String value = input.replaceAll(" ", "_");
         String[] arr = value.split("[_]");
         if (arr.length > 3) {
-            throw new Exception("Формат математической операции не удовлетворяет заданию - два операнда и один оператор ");
+            throw new Exception("Р¤РѕСЂРјР°С‚ РјР°С‚РµРјР°С‚РёС‡РµСЃРєРѕР№ РѕРїРµСЂР°С†РёРё РЅРµ СѓРґРѕРІР»РµС‚РІРѕСЂСЏРµС‚ Р·Р°РґР°РЅРёСЋ - РґРІР° РѕРїРµСЂР°РЅРґР° Рё РѕРґРёРЅ РѕРїРµСЂР°С‚РѕСЂ");
         }
         if (arr.length < 3) {
-            throw new Exception("Cтрока не является математической операцией");
+            throw new Exception("CС‚СЂРѕРєР° РЅРµ СЏРІР»СЏРµС‚СЃСЏ РјР°С‚РµРјР°С‚РёС‡РµСЃРєРѕР№ РѕРїРµСЂР°С†РёРµР№");
         }
         List<String> roman = new ArrayList<>(Arrays.asList(new Roman2Arabic().getRoman()));
 
@@ -23,10 +23,10 @@ public class Main {
             int num1 = Integer.parseInt(arr[0]);
             int num2 = Integer.parseInt(arr[2]);
             if (0 >= num1 || 0 >= num2 ) {
-                throw new Exception("Числа меньше или равны 0");
+                throw new Exception("Р§РёСЃР»Р° РјРµРЅСЊС€Рµ РёР»Рё СЂР°РІРЅС‹ 0");
             }
             if (10 < num1 || 10 < num2 ) {
-                throw new Exception("Числа больше 10");
+                throw new Exception("Р§РёСЃР»Р° Р±РѕР»СЊС€Рµ 10");
             }
 
             char op = arr[1].charAt(0);
@@ -41,11 +41,11 @@ public class Main {
             char op = arr[1].charAt(0);
             int result = calculated(num1, num2, op);
             if (result < 0) {
-                throw new Exception("В римской системе нет отрицательных чисел");
+                throw new Exception("Р’ СЂРёРјСЃРєРѕР№ СЃРёСЃС‚РµРјРµ РЅРµС‚ РѕС‚СЂРёС†Р°С‚РµР»СЊРЅС‹С… С‡РёСЃРµР»");
             }
             return new Roman2Arabic().convertNumToRoman(result);
         }
-        throw new Exception ("Используются одновременно разные системы счисления");
+        throw new Exception ("РСЃРїРѕР»СЊР·СѓСЋС‚СЃСЏ РѕРґРЅРѕРІСЂРµРјРµРЅРЅРѕ СЂР°Р·РЅС‹Рµ СЃРёСЃС‚РµРјС‹ СЃС‡РёСЃР»РµРЅРёСЏ");
     }
     public static int calculated(int num1, int num2, char op) throws IllegalArgumentException {
         int result = 0;
@@ -64,7 +64,7 @@ public class Main {
                 result = num1 / num2;
                 break;
             default:
-                throw new IllegalArgumentException("Не верный знак операции");
+                throw new IllegalArgumentException("РќРµ РІРµСЂРЅС‹Р№ Р·РЅР°Рє РѕРїРµСЂР°С†РёРё");
         }
         return result;
     }
@@ -72,7 +72,7 @@ public class Main {
     static int numberHashMap(String romanNumber) throws Exception {
         Map<String, Integer> mapRoman = new HashMap<>();
         if (!mapRoman.containsKey(romanNumber)) {
-            throw new Exception("Передано некорректное римское число");
+            throw new Exception("РџРµСЂРµРґР°РЅРѕ РЅРµРєРѕСЂСЂРµРєС‚РЅРѕРµ СЂРёРјСЃРєРѕРµ С‡РёСЃР»Рѕ");
         }
         mapRoman.put("I", 1);
         mapRoman.put("II", 2);
