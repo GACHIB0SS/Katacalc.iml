@@ -1,11 +1,14 @@
 package com.company;
 import java.util.*;
 import java.lang.*;
+import java.util.Scanner;
 
 public class Main {
 
     public static void main(String[] args) throws Exception {
-        System.out.println(calc("XI + XI"));
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Введите выражение: ");
+        System.out.println(calc(sc.nextLine()));
     }
 
     public static String calc(String input) throws Exception {
@@ -71,9 +74,6 @@ public class Main {
 
     static int numberHashMap(String romanNumber) throws Exception {
         Map<String, Integer> mapRoman = new HashMap<>();
-        if (!mapRoman.containsKey(romanNumber)) {
-            throw new Exception("Передано некорректное римское число");
-        }
         mapRoman.put("I", 1);
         mapRoman.put("II", 2);
         mapRoman.put("III", 3);
@@ -84,6 +84,9 @@ public class Main {
         mapRoman.put("VIII", 8);
         mapRoman.put("IX", 9);
         mapRoman.put("X", 10);
+        if (!mapRoman.containsKey(romanNumber)) {
+            throw new Exception("Передано некорректное римское число");
+        }
         return mapRoman.get(romanNumber);
     }
 }
